@@ -4,16 +4,19 @@
   "author": "Matt Holden",
   "license": "MIT",
   "description": "Simple Typescript library that makes OpenAI messages easier to work with.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup --dts",
+    "watch": "tsup --dts --watch",
     "test": "jest"
   },
   "tsup": {
     "entry": [
       "src/index.ts"
     ],
-    "splitting": false,
     "sourcemap": true,
     "clean": true
   },
