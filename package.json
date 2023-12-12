@@ -13,8 +13,8 @@
   },
   "scripts": {
     "build": "tsup --dts",
-    "watch": "tsup --dts --watch",
-    "test": "jest"
+    "test": "jest",
+    "publish": "yarn build && np"
   },
   "tsup": {
     "entry": [
