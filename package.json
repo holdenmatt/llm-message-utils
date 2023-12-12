@@ -1,0 +1,11 @@
+{
+  "name": "openai-message-utils",
+  "version": "0.1.1",
+  "author": "Matt Holden",
+  "license": "MIT",
+  "description": "Simple Typescript library that makes OpenAI messages easier to work with.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
