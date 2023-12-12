@@ -14,7 +14,7 @@
   "scripts": {
     "build": "tsup --dts",
     "test": "jest",
-    "publish": "yarn build && np"
+    "prepare": "yarn test && yarn build"
   },
   "tsup": {
     "entry": [
