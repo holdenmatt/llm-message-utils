@@ -6,7 +6,16 @@
   "description": "Simple Typescript library that makes OpenAI messages easier to work with.",
   "main": "index.js",
   "scripts": {
+    "build": "tsup --dts",
     "test": "jest"
+  },
+  "tsup": {
+    "entry": [
+      "src/index.ts"
+    ],
+    "splitting": false,
+    "sourcemap": true,
+    "clean": true
   },
   "devDependencies": {
     "@types/jest": "^29.5.11",
