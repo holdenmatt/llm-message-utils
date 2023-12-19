@@ -18,13 +18,19 @@ Usage:
 const system = "You are a helpful assistant";
 const user = "How do I say cheese in French?";
 const messages = buildMessages({ system, user });
+
+console.log(messages) =>
+[
+    { role: "system", content: system },
+    { role: "user", content: user },
+]
 ```
 
-## trimWhitespace
+## trim
 
-You can indent prompts in your code, for better readability.
+Allows you to indent prompts in your code for readability, while automatically trimming whitespace.
 
-Just add the `trimWhitespace` tagged template literal, and it will remove:
+Just add the `trim` tagged template literal, and it will remove:
 
 - any leading or trailing whitespace from each line
 - any empty leading or trailing lines
@@ -34,7 +40,7 @@ Other empty lines will be preserved.
 Usage:
 
 ```
-const system = `
+const system = trim`
     You are a helpful assistant.
     This line looks indented in code, but the value won't be.
     The prompt starts/ends with empty lines, which will also be removed.

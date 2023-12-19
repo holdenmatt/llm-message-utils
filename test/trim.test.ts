@@ -1,8 +1,8 @@
-import { trimLines } from "../src";
+import { trim } from "../src";
 
 describe("trimLines", () => {
   it("trims leading and trailing whitespace", () => {
-    expect(trimLines`foo
+    expect(trim`foo
     bar
         baz  `).toEqual(`foo
 bar
@@ -10,7 +10,7 @@ baz`);
   });
 
   it("removes empty leading or trailing lines", () => {
-    expect(trimLines`
+    expect(trim`
 
     foo
     bar

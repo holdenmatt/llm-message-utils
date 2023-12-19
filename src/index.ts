@@ -41,12 +41,12 @@ export function buildMessages({
  *
  * Usage:
  * ```
- * const str = trimWhitespace`
+ * const str = trim`
  *    indents will be removed
  * `;
  * ```
  */
-export function trimLines(strings: TemplateStringsArray, ...values: any[]) {
+export function trim(strings: TemplateStringsArray, ...values: any[]) {
   const fullString = strings.reduce((result, str, i) => result + values[i - 1] + str);
 
   const lines = fullString.split("\n").map((line) => line.trim());
