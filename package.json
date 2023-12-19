@@ -1,6 +1,6 @@
 {
   "name": "@holdenmatt/openai-message-utils",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "author": "Matt Holden",
   "license": "MIT",
   "description": "Simple Typescript library that makes OpenAI messages easier to work with.",
@@ -14,7 +14,8 @@
   "scripts": {
     "build": "tsup --dts",
     "test": "jest",
-    "prepare": "yarn test && yarn build"
+    "prepare": "yarn test && yarn build",
+    "publish": "np"
   },
   "tsup": {
     "entry": [
