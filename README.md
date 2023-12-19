@@ -7,25 +7,6 @@ JavaScript [template literals](https://developer.mozilla.org/en-US/docs/Web/Java
 
 This library helps with just two small annoyances.
 
-## buildMessages
-
-The `buildMessages` function handles the common case of creating a messages
-array from a single system message and/or user message.
-
-Usage:
-
-```
-const system = "You are a helpful assistant";
-const user = "How do I say cheese in French?";
-const messages = buildMessages({ system, user });
-
-console.log(messages) =>
-[
-    { role: "system", content: system },
-    { role: "user", content: user },
-]
-```
-
 ## trim
 
 Allows you to indent prompts in your code for readability, while automatically trimming whitespace.
@@ -45,4 +26,23 @@ const system = trim`
     This line looks indented in code, but the value won't be.
     The prompt starts/ends with empty lines, which will also be removed.
 `
+```
+
+## buildMessages
+
+The `buildMessages` function handles the common case of creating a messages
+array from a single system message and/or user message.
+
+Usage:
+
+```
+const system = "You are a helpful assistant";
+const user = "How do I say cheese in French?";
+const messages = buildMessages({ system, user });
+
+console.log(messages) =>
+[
+    { role: "system", content: system },
+    { role: "user", content: user },
+]
 ```
