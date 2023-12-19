@@ -31,18 +31,20 @@ const system = trim`
 ## buildMessages
 
 The `buildMessages` function handles the common case of creating a messages
-array from a single system message and/or user message.
+array from a single system message and/or user message (and trims them by default).
 
 Usage:
 
 ```
 const system = "You are a helpful assistant";
-const user = "How do I say cheese in French?";
+const user = `
+    How do I say cheese in French?
+`;
 const messages = buildMessages({ system, user });
 
 console.log(messages) =>
 [
-    { role: "system", content: system },
-    { role: "user", content: user },
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How do I say cheese in French?" },
 ]
 ```

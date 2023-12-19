@@ -30,4 +30,27 @@ describe("buildMessage", () => {
   it("works with no messages", () => {
     expect(buildMessages({})).toEqual([]);
   });
+
+  it("trims by default", () => {
+    expect(
+      buildMessages({
+        system: `
+      Multiline
+      `,
+        user: "  Whitespace   ",
+      })
+    ).toEqual([
+      { content: "Multiline", role: "system" },
+      { content: "Whitespace", role: "user" },
+    ]);
+  });
+
+  it("can disable trimming", () => {
+    expect(
+      buildMessages({
+        user: "  Whitespace   ",
+        trim: false,
+      })
+    ).toEqual([{ content: "  Whitespace   ", role: "user" }]);
+  });
 });
