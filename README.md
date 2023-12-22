@@ -7,6 +7,11 @@ JavaScript [template literals](https://developer.mozilla.org/en-US/docs/Web/Java
 
 This library helps with just two small annoyances.
 
+## Install
+```
+npm install openai-message-utils
+```
+
 ## trim
 
 Allows you to indent prompts in your code for readability, while automatically trimming whitespace.
