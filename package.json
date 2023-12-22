@@ -1,10 +1,14 @@
 {
-  "name": "@holdenmatt/openai-message-utils",
+  "name": "openai-message-utils",
   "version": "0.1.11",
+  "description": "Simple Typescript library to makes OpenAI messages easier to work with.",
   "author": "Matt Holden",
   "license": "MIT",
-  "description": "Simple Typescript library that makes OpenAI messages easier to work with.",
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/holdenmatt/openai-message-utils"
+  },
   "files": [
     "dist"
   ],
@@ -23,6 +27,9 @@
     "sourcemap": true,
     "clean": true
   },
+  "peerDependencies": {
+    "openai": ">= 4.20.0"
+  },
   "devDependencies": {
     "@types/jest": "^29.5.11",
     "jest": "^29.7.0",
@@ -32,15 +39,7 @@
     "tsup": "^8.0.1",
     "typescript": "^5.3.3"
   },
-  "peerDependencies": {
-    "openai": ">= 4.20.0"
-  },
   "prettier": {
-    "printWidth": 90,
-    "semi": true,
-    "singleQuote": false,
-    "trailingComma": "es5",
-    "useTabs": false,
-    "tabWidth": 2
+    "printWidth": 90
   }
 }
