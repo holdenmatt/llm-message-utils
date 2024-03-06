@@ -18,8 +18,7 @@
   },
   "scripts": {
     "build": "tsup --dts",
-    "test": "jest",
-    "publish": "np"
+    "test": "jest"
   },
   "tsup": {
     "entry": [

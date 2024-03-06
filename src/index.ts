@@ -1,5 +1,3 @@
-import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
-
 /**
  * Tagged template literal to trim leading/trailing whitespace from each line,
  * and remove leading/trailing lines if empty.
@@ -33,39 +31,68 @@ function trimLines(str: string) {
 }
 
 /**
- * Convenience function to create OpenAI messages from system/user prompts.
+ * Convert a string to a system message.
  *
  * Usage:
  * ```
- * const system = "You are a helpful assistant";
- * const user = "How do I say cheese in French?";
- * const messages = buildMessages({ system, user });
+ * const message = systemRole`You are a helpful assistant`;
+ * ```
+ * Result:
+ * ```
+ * {
+ *   role: "system",
+ *   content: "You are a helpful assistant"
+ * }
  * ```
  */
-export function buildMessages({
-  system,
-  user,
-  trim = true,
-}: {
-  system?: string;
-  user?: string;
-  trim?: boolean;
-}): ChatCompletionMessageParam[] {
-  const messages: ChatCompletionMessageParam[] = [];
+export function systemRole(strings: TemplateStringsArray, ...values: any[]) {
+  return {
+    role: "system" as const,
+    content: trim(strings, ...values),
+  };
+}
 
-  if (system) {
-    messages.push({
-      role: "system",
-      content: trim ? trimLines(system) : system,
-    });
-  }
+/**
+ * Convert a string to a user message.
+ *
+ * Usage:
+ * ```
+ * const country = "France";
+ * const message = userRole`What's the capital of ${country}`;
+ * ```
+ * Result:
+ * ```
+ * {
+ *   role: "user",
+ *   content: "What's the capital of France"
+ * }
+ * ```
+ */
+export function userRole(strings: TemplateStringsArray, ...values: any[]) {
+  return {
+    role: "user" as const,
+    content: trim(strings, ...values),
+  };
+}
 
-  if (user) {
-    messages.push({
-      role: "user",
-      content: trim ? trimLines(user) : user,
-    });
-  }
-
-  return messages;
+/**
+ * Convert a string to an assistant message.
+ *
+ * Usage:
+ * ```
+ * const message = assistantRole`The capital of France is Paris`;
+ * ```
+ * Result:
+ * ```
+ * {
+ *   role: "assistant",
+ *   content: "The capital of France is Paris"
+ * }
+ * ```
+ */
+export function assistantRole(strings: TemplateStringsArray, ...values: any[]) {
+  return {
+    role: "assistant" as const,
+    content: trim(strings, ...values),
+  };
 }

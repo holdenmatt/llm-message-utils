@@ -1,9 +1,11 @@
 # openai-message-utils
 
-A _very_ simple Typescript library that makes OpenAI messages slightly easier to work with.
+A _very_ simple zero-dependency Typescript library
+that makes LLM prompts slightly easier to work with.
 
-You probably don't need this library (or any library) to build prompts.
-JavaScript [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) are great for this!
+You probably don't need this library (or any library) to build prompts!
+
+JavaScript [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) are great for this.
 
 This library helps with just two small annoyances.
 
@@ -26,6 +28,8 @@ Other empty lines will be preserved.
 Usage:
 
 ```
+import { trim } from "openai-message-utils";
+
 const system = trim`
     You are a helpful assistant.
     This line looks indented in code, but the value won't be.
@@ -33,23 +37,46 @@ const system = trim`
 `
 ```
 
-## buildMessages
+## user, system, assistant messages
 
-The `buildMessages` function handles the common case of creating a messages
-array from a single system message and/or user message (and trims them by default).
-
-Usage:
-
+It's common to build a messages array like this:
 ```
-const system = "You are a helpful assistant";
-const user = `
-    How do I say cheese in French?
-`;
-const messages = buildMessages({ system, user });
-
-console.log(messages) =>
-[
-    { role: "system", content: "You are a helpful assistant" },
-    { role: "user", content: "How do I say cheese in French?" },
+const country = "France";
+const messages = [
+    {
+        role: "system",
+        content: "You are a helpful assistant"
+    },
+    {
+        role: "user",
+        content: `What's the capital of ${country}?"
+    },
+    {
+        role: "assistant",
+        content: "The capital of France is Paris"
+    }
 ]
 ```
+
+We provide 3 additional tagged template literals as syntactic sugar.
+
+Usage:
+```
+import { systemRole, userRole, assistantRole } from "openai-message-utils";
+
+const country = "France";
+const messages = [
+    systemRole`
+        You are a helpful assistant
+    `,
+    userRole`
+        What's the capital of ${country}?
+    `,
+    assistantRole`
+        The capital of France is Paris
+    `
+]
+```
+
+These create the message objects with a given role, and trim strings (as above)
+to allow you to indent however you like for readability.
