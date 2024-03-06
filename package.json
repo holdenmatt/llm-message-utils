@@ -1,6 +1,6 @@
 {
   "name": "llm-message-utils",
-  "version": "0.1.13",
+  "version": "0.1.0",
   "description": "Simple Typescript library to make LLM messages easier to work with.",
   "author": "Matt Holden",
   "license": "MIT",
