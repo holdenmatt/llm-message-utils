@@ -1,7 +1,7 @@
 {
-  "name": "openai-message-utils",
+  "name": "llm-message-utils",
   "version": "0.1.13",
-  "description": "Simple Typescript library to makes OpenAI messages easier to work with.",
+  "description": "Simple Typescript library to make LLM messages easier to work with.",
   "author": "Matt Holden",
   "license": "MIT",
   "main": "dist/index.js",
@@ -9,7 +9,7 @@
     "type": "git",
     "url": "https://github.com/holdenmatt/openai-message-utils"
   },
-  "keywords": ["openai", "prompt"],
+  "keywords": ["openai", "llm", "prompt", "typescript"],
   "files": [
     "dist"
   ],

@@ -1,4 +1,4 @@
-# openai-message-utils
+# llm-message-utils
 
 A _very_ simple zero-dependency Typescript library
 that makes LLM prompts slightly easier to work with.
@@ -11,7 +11,7 @@ This library helps with just two small annoyances.
 
 ## Install
 ```
-npm install openai-message-utils
+npm install llm-message-utils
 ```
 
 ## trim
@@ -28,7 +28,7 @@ Other empty lines will be preserved.
 Usage:
 
 ```
-import { trim } from "openai-message-utils";
+import { trim } from "llm-message-utils";
 
 const system = trim`
     You are a helpful assistant.
@@ -62,7 +62,7 @@ We provide 3 additional tagged template literals as syntactic sugar.
 
 Usage:
 ```
-import { systemRole, userRole, assistantRole } from "openai-message-utils";
+import { systemRole, userRole, assistantRole } from "llm-message-utils";
 
 const country = "France";
 const messages = [
